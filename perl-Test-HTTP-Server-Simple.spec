@@ -57,5 +57,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
-%{perl_vendorlib}/Test/HTTP/Server/*.pm
+%{perl_vendorlib}/Test/HTTP/Server
 %{_mandir}/man3/*
