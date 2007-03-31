@@ -13,7 +13,7 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-authors/id/G/GL/GLASSER/Test-HTTP-Server-Simple-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-authors/id/G/GL/GLASSER/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	bb23602669311fa2dd5a61bfc01e05dd
 URL:		http://search.cpan.org/dist/Test-HTTP-Server-Simple/
 BuildRequires:	perl-devel >= 1:5.8.0
