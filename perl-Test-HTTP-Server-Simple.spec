@@ -22,6 +22,7 @@ BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
 BuildRequires:	perl-HTTP-Server-Simple
 BuildRequires:	perl-Test-Builder-Tester >= 1.01
+BuildRequires:	perl-Test-Pod-Coverage
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
