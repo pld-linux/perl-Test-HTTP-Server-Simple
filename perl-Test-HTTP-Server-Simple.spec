@@ -7,20 +7,19 @@
 Summary:	Basic test functions for HTTP::Server::Simple
 Summary(pl.UTF-8):	Podstawowe funkcje testowe modułu HTTP::Server:Simple
 Name:		perl-Test-HTTP-Server-Simple
-Version:	0.03
-Release:	2
+Version:	0.11
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-authors/id/G/GL/GLASSER/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	bb23602669311fa2dd5a61bfc01e05dd
+Source0:	https://www.cpan.org/authors/id/A/AL/ALEXMV/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	b46cd262f054fa51685b551ff55b5dfd
 URL:		http://search.cpan.org/dist/Test-HTTP-Server-Simple/
-BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
 BuildRequires:	perl-HTTP-Server-Simple
-BuildRequires:	perl-Test-Builder-Tester >= 1.01
+BuildRequires:	perl-Test-Builder-Tester >= 1.04
 BuildRequires:	perl-Test-Pod-Coverage
 %endif
 BuildArch:	noarch
@@ -40,17 +39,17 @@ metoda: started_ok.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Build.PL \
-	destdir=$RPM_BUILD_ROOT \
-	installdirs=vendor
-./Build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make}
 
-%{?with_tests:./Build test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-./Build install
+%{__make} pure_install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
